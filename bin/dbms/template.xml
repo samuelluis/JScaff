@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbms>
+	<name>[value]</name>
+	<safe_caracter>[value]</safe_caracter>
+	<connection>
+		<path>[driver_path]</path>
+		<host>[value]</host>
+		<port>[value]</port>
+		<user>[value]</user>
+		<pass>[value]</pass>
+	</connection>
+	<datatypes>
+		[all_datatypes_and_equivalences]
+	</datatypes>
+	<dml>
+		<insert>[prefix_syntax]</insert>
+		<update>[prefix_syntax]</update>
+		<delete>[prefix_syntax]</delete>
+	</dml>
+	<query>
+		<or>[syntax]</or>
+		<and>[syntax]</and>
+		<sum>[syntax]</sum>
+		<min>[syntax]</min>
+		<max>[syntax]</max>
+		<avg>[syntax]</avg>
+		<count>[syntax]</count>
+		<group>[syntax]</group>
+		<order>[syntax]</order>
+		<where>[syntax]</where>
+		<having>[syntax]</having>
+	</query>
+</dbms>
