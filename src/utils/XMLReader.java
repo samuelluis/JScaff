@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.File;
+import java.util.AbstractMap;
 
 import org.jdom.Document;
 import org.jdom.Element;
@@ -9,6 +10,7 @@ import org.jdom.input.SAXBuilder;
 import dbms.Structure;
 
 public class XMLReader {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Structure getStruct(String engine){
 		Document xml = null;
 		Structure struct = new Structure();
@@ -22,12 +24,13 @@ public class XMLReader {
 		}
 		String name = xml.getRootElement().getChild("general").getChild("name").getText();
 		String safeCaracter = xml.getRootElement().getChild("general").getChild("safe_caracter").getText();
+		System.out.println(safeCaracter);
 		String driverPath = xml.getRootElement().getChild("general").getChild("driver_path").getText();
 		String connection = xml.getRootElement().getChild("general").getChild("connection_string").getText();
 		struct.setGeneral(name, safeCaracter, driverPath, connection);
 		for(Object obj : xml.getRootElement().getChild("connection").getChildren()){
 			Element element = (Element)obj;
-			struct.connection.put(element.getQualifiedName(), element.getText());
+			struct.connection.put(element.getQualifiedName(), new AbstractMap.SimpleEntry(element.getAttributeValue("type"), element.getText()));
 		}
 		
 		for(Object obj : xml.getRootElement().getChild("datatypes").getChildren()){

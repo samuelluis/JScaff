@@ -26,7 +26,7 @@ import dbms.Store;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame {
-	private JComboBox engines;
+	private JComboBox<String> engines;
 	private JPanel connectionContainer;
 	private JButton connect;
 	private JButton cancel;
@@ -45,9 +45,9 @@ public class Login extends JFrame {
 		setVisible(true);
 	}
 	
-	public JComboBox getEngines(){
+	public JComboBox<String> getEngines(){
 		if(engines==null){
-			engines = new JComboBox(ReflectionHelper.getFiles("dbms.xml"));
+			engines = new JComboBox<String>(ReflectionHelper.getFiles("dbms.xml"));
 			engines.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
@@ -66,8 +66,15 @@ public class Login extends JFrame {
 		connectionFields = new HashMap<String, JTextField>();
 		for (String field : Store.struct.connection.keySet()) {
 			getConnectionContainer().setLayout(new GridLayout(count,1));
-			JTextField jfield = new JTextField(20);
-			jfield.setText(Store.struct.connection.get(field));
+			JTextField jfield = null;
+			String type = Store.struct.connection.get(field).getKey();
+			if(type.equals("text")){
+				jfield = new JTextField(20);
+			}
+			if(type.equals("file")){
+				jfield = new CustomFileChooser();
+			}
+			jfield.setText(Store.struct.connection.get(field).getValue());
 			connectionFields.put(field, jfield);
 			getConnectionContainer().add(getField(getLabel(field+": "),jfield));
 			count++;

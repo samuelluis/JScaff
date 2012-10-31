@@ -7,10 +7,10 @@
 		<connection_string>jdbc:mysql://[host]:[port]/information_schema?user=[user]&amp;password=[pass]</connection_string>
 	</general>
 	<connection>
-		<host>localhost</host>
-		<port>3306</port>
-		<user>root</user>
-		<pass/>
+		<host type="text" >localhost</host>
+		<port type="text" >3306</port>
+		<user type="text" >root</user>
+		<pass type="text" />
 	</connection>
 	<datatypes>
 		<bit condition="==1">Boolean</bit>

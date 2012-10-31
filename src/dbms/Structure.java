@@ -8,13 +8,13 @@ import utils.ScriptHelper;
 
 public class Structure {
 	private General general;
-	public LinkedHashMap<String, String> connection;
+	public LinkedHashMap<String, Entry<String, String>> connection;
 	private HashMap<String, DataType> datatypes;
 	public HashMap<String, String> dml;
 	public HashMap<String, String> query;
 	
 	public Structure(){
-		connection = new LinkedHashMap<String, String>();
+		connection = new LinkedHashMap<String, Entry<String, String>>();
 		datatypes = new HashMap<String, DataType>();
 		dml = new HashMap<String, String>();
 		query = new HashMap<String, String>();

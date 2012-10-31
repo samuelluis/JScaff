@@ -1,1 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<dbms>
+	<general>
+		<name>SQLite</name>
+		<safe_caracter>""</safe_caracter>
+		<driver_path>org.sqlite.JDBC</driver_path>
+		<connection_string>jdbc:sqlite:[database]</connection_string>
+	</general>
+	<connection>
+		<database type="file" />
+	</connection>
+	<datatypes>
+		<bit condition="==1">Boolean</bit>
+		<bit condition=">1">Byte</bit>
+		<bit condition=">8">Short</bit>
+		<bit condition=">16">Integer</bit>
+		<bit condition=">32">Long</bit>
+		<tinyint>Byte</tinyint>
+		<smallint>Short</smallint>
+		<mediumint>Integer</mediumint>
+		<int>Integer</int>
+		<bigint>Long</bigint>
+		<float>Float</float>
+		<double>Double</double>
+		<decimal>java.math.BigDecimal</decimal>
+		<numeric>java.math.BigDecimal</numeric>
+		<year>Short</year>
+		<date>java.util.Date</date>
+		<time>java.util.Date</time>
+		<datetime>java.util.Date</datetime>
+		<timestamp>java.util.Date</timestamp>
+		<char condition="==1">Character</char>
+		<char condition=">1">String</char>
+		<varchar>String</varchar>
+		<text>String</text>
+		<tinytext>String</tinytext>
+		<mediumtext>String</mediumtext>
+		<longtext>String</longtext>
+		<binary>Byte[]</binary>
+		<varbinary>Byte[]</varbinary>
+		<blob>Byte[]</blob>
+		<tinyblob>Byte[]</tinyblob>
+		<mediumblob>Byte[]</mediumblob>
+		<longblob>Byte[]</longblob>
+		<enum>String</enum>
+		<set>String</set>
+	</datatypes>
+	<dml>
+		<insert>insert into</insert>
+		<update>update</update>
+		<delete>delete from</delete>
+	</dml>
+	<query>
+		<or>or</or>
+		<and>and</and>
+		<sum>sum</sum>
+		<min>min</min>
+		<max>max</max>
+		<avg>avg</avg>
+		<count>count</count>
+		<group>group by</group>
+		<order>order by</order>
+		<where>where</where>
+		<having>having</having>
+	</query>
+</dbms>
